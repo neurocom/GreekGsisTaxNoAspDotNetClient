@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:tns0="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl/types/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="RgWsBasStoixN" targetNamespace="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema xmlns:tns="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl/types/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" elementFormDefault="qualified" targetNamespace="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl/types/">
+      <xsd:complexType name="RgWsBasStoixNRtUser">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:RgWsBasStoixNRtBase">
+            <xsd:sequence>
+              <xsd:element name="actLongDescr" nillable="true" type="xsd:string" />
+              <xsd:element name="postalZipCode" nillable="true" type="xsd:string" />
+              <xsd:element name="facActivity" nillable="true" type="xsd:decimal" />
+              <xsd:element name="registDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="stopDate" nillable="true" type="xsd:dateTime" />
+              <xsd:element name="doyDescr" nillable="true" type="xsd:string" />
+              <xsd:element name="parDescription" nillable="true" type="xsd:string" />
+              <xsd:element name="deactivationFlag" nillable="true" type="xsd:string" />
+              <xsd:element name="postalAddressNo" nillable="true" type="xsd:string" />
+              <xsd:element name="postalAddress" nillable="true" type="xsd:string" />
+              <xsd:element name="doy" nillable="true" type="xsd:string" />
+              <xsd:element name="firmPhone" nillable="true" type="xsd:string" />
+              <xsd:element name="onomasia" nillable="true" type="xsd:string" />
+              <xsd:element name="firmFax" nillable="true" type="xsd:string" />
+              <xsd:element name="afm" nillable="true" type="xsd:string" />
+              <xsd:element name="commerTitle" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="RgWsBasStoixNRtBase">
+        <xsd:sequence />
+      </xsd:complexType>
+      <xsd:complexType name="GenWsErrorRtUser">
+        <xsd:complexContent mixed="false">
+          <xsd:extension base="tns:GenWsErrorRtBase">
+            <xsd:sequence>
+              <xsd:element name="errorDescr" nillable="true" type="xsd:string" />
+              <xsd:element name="errorCode" nillable="true" type="xsd:string" />
+            </xsd:sequence>
+          </xsd:extension>
+        </xsd:complexContent>
+      </xsd:complexType>
+      <xsd:complexType name="GenWsErrorRtBase">
+        <xsd:sequence />
+      </xsd:complexType>
+    </xsd:schema>
+  </types>
+  <message name="RgWsBasStoixN_rgWsBasStoixN">
+    <part name="pAfm" type="xsd:string" />
+    <part name="pBasStoixNRec_out" type="tns0:RgWsBasStoixNRtUser" />
+    <part name="pCallSeqId_out" type="xsd:decimal" />
+    <part name="pErrorRec_out" type="tns0:GenWsErrorRtUser" />
+  </message>
+  <message name="RgWsBasStoixN_rgWsBasStoixNResponse">
+    <part name="pBasStoixNRec_out" type="tns0:RgWsBasStoixNRtUser" />
+    <part name="pCallSeqId_out" type="xsd:decimal" />
+    <part name="pErrorRec_out" type="tns0:GenWsErrorRtUser" />
+  </message>
+  <message name="RgWsBasStoixN_rgWsBasStoixNVersionInfo" />
+  <message name="RgWsBasStoixN_rgWsBasStoixNVersionInfoResponse">
+    <part name="result" type="xsd:string" />
+  </message>
+  <portType name="RgWsBasStoixN">
+    <operation name="rgWsBasStoixN" parameterOrder="pAfm pBasStoixNRec_out pCallSeqId_out pErrorRec_out">
+      <input message="tns:RgWsBasStoixN_rgWsBasStoixN" />
+      <output message="tns:RgWsBasStoixN_rgWsBasStoixNResponse" />
+    </operation>
+    <operation name="rgWsBasStoixNVersionInfo">
+      <input message="tns:RgWsBasStoixN_rgWsBasStoixNVersionInfo" />
+      <output message="tns:RgWsBasStoixN_rgWsBasStoixNVersionInfoResponse" />
+    </operation>
+  </portType>
+  <binding name="RgWsBasStoixNSoapHttp" type="tns:RgWsBasStoixN">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <operation name="rgWsBasStoixN">
+      <soap:operation soapAction="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl/rgWsBasStoixN" />
+      <input>
+        <soap:body use="literal" namespace="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl" parts="pAfm pBasStoixNRec_out pCallSeqId_out pErrorRec_out" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl" parts="pBasStoixNRec_out pCallSeqId_out pErrorRec_out" />
+      </output>
+    </operation>
+    <operation name="rgWsBasStoixNVersionInfo">
+      <soap:operation soapAction="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl/rgWsBasStoixNVersionInfo" />
+      <input>
+        <soap:body use="literal" namespace="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl" />
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://gr/gsis/rgwsbasstoixn/RgWsBasStoixN.wsdl" parts="result" />
+      </output>
+    </operation>
+  </binding>
+  <service name="RgWsBasStoixN">
+    <port name="RgWsBasStoixNSoapHttpPort" binding="tns:RgWsBasStoixNSoapHttp">
+      <soap:address location="http://xportal1.gsis.gr:7777/wsgsis/RgWsBasStoixN/RgWsBasStoixNSoapHttpPort" />
+    </port>
+  </service>
+</definitions>
