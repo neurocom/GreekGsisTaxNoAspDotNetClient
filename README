@@ -1,9 +1,9 @@
 
 TaxDetails installation 
 
-This application can be built & run with the use of Visual Studio, following the next steps: 
-1) Unzip TaxDetails.zip (It created a TaxDetails folder) 
-2) Open TaxDetails.sln with the use of Visual studio 
+This application can be built & run with the use of Visual Studio, following the next steps:
+1) Download TaxDetails folder, TaxDetails.sln and TaxDetails.suo from the repository
+1) Open TaxDetails.sln with the use of Visual studio 
 3) Build & Run 
 
-NOTE: Detailed documentation is located inside the TaxDetails folder
+NOTE: Detailed documentation can be found in documentation.odt
